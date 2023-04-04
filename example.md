@@ -32,3 +32,31 @@ n         "next occurence"
 x         "delete character"
 p         "paste content of buffer (o) after cursor"
 
+## Example 3
+
+@
+Remove prefixes of parameters
+
+´´´
+  METHODS:
+    process
+      IMPORTING
+        i_text_before       TYPE string
+        i_width             TYPE i
+      RETURNING
+        VALUE(r_text_after) TYPE stringtab.
+´´´
+
+/i_<cr>   "search for 'i_'; this will jump to the beginning of i_text_before"
+ctrl+2, r "rename in file; this will rename all occurences of i_text_before"
+2x        "remove character under cursor and next one"
+<cr>      "end renaming"
+n         "find next occurence of last searched string ('i_'); this will jump to the beginning of i_width"
+ctrl+2, r "rename in file; this will rename all occurences of i_width"
+2x        "remove character under cursor and next one"
+<cr>      "end renaming"
+2j        "2 lines down"
+fr        "forward to first occurence of r"
+ctrl+2, r "rename in file; this will rename all occurences of r_text_after"
+2x        "remove character under cursor and next one"
+<cr>      "end renaming"
