@@ -21,7 +21,7 @@ register(|Damir|);
 |---------------------|---------------------------------|
 | search for 'D'      | <kbd>/</kbd>`D`<kbd>enter</kbd> |
 | search next Finding | <kbd>n</kbd>                    |
-| delete Word         | <kbd>d</kbd><kbd>w</kbd>                   |
+| delete Word         | <kbd>d</kbd><kbd>w</kbd>        |
 
 ## Example-1
 
@@ -252,7 +252,7 @@ result = VALUE #( ( rolls = 'X X X X X X X X X X X X' result = 300 ) ).
 | Four lines down                               | <kbd>4</kbd><kbd>j</kbd>             |
 | Jump to 'X'                                   | <kbd>f</kbd>`X`                      |
 | Select everything within the current ''-block | <kbd>v</kbd><kbd>i</kbd>`'`          |
-| Turn selection to lower case                  | <kbd>u<kbd>                          |
+| Turn selection to lower case                  | <kbd>u</kbd>                         |
 
 ## Example-9
 
