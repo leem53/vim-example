@@ -17,11 +17,11 @@ Delete the Word 'Damir'.
 register(|Damir|);
 ```
 
-| WHAT                        | HOW                           |
-|-----------------------------|-------------------------------|
-| search for 'D'              | <kbd>/D</kbd><kbd>enter</kbd> |
-| search next Finding         | <kbd>n</kbd>                  |
-| delete Word                 | <kbd>dw</kbd>                 |
+| WHAT                | HOW                             |
+|---------------------|---------------------------------|
+| search for 'D'      | <kbd>/</kbd>`D`<kbd>enter</kbd> |
+| search next Finding | <kbd>n</kbd>                    |
+| delete Word         | <kbd>d</kbd><kbd>w</kbd>                   |
 
 ## Example-1
 
@@ -39,7 +39,7 @@ Rename 'width' to 'length'
 | 5 lines down                     | <kbd>5</kbd><kbd>j</kbd> |
 | forward to first occurrence of w | <kbd>f</kbd><kbd>w</kbd> |
 | change word                      | <kbd>c</kbd><kbd>w</kbd> |
-| enter text                       | <kbd>length</kbd>        |
+| enter text                       | `length`<kbd>esc</kbd>   |
 
 ## Example-2
 
@@ -54,7 +54,7 @@ Correct typing error 'ont' to 'not'
 
 | WHAT                                               | HOW                                                              |
 |----------------------------------------------------|------------------------------------------------------------------|
-| search for 'ont'                                   | <kbd>/</kbd><kbd>o</kbd><kbd>n</kbd><kbd>t</kbd><kbd>enter</kbd> |
+| search for 'ont'                                   | <kbd>/</kbd>`ont`<kbd>enter</kbd>                                |
 | next occurrence                                    | <kbd>n</kbd>                                                     |
 | delete character                                   | <kbd>x</kbd>                                                     |
 | paste content of default register (o) after cursor | <kbd>p</kbd>                                                     |
@@ -76,7 +76,7 @@ Remove prefixes of parameters
 
 | WHAT                                                                                            | HOW                                                  |
 |-------------------------------------------------------------------------------------------------|------------------------------------------------------|
-| search for 'i_'; this will jump to the beginning of i_text_before                               | <kbd>/</kbd><kbd>i</kbd><kbd>_</kbd><kbd>enter</kbd> |
+| search for 'i_'; this will jump to the beginning of i_text_before                               | <kbd>/</kbd>`i_`<kbd>enter</kbd>                     |
 | rename in file; this will rename all occurrences of i_text_before                               | <kbd>ctrl</kbd><kbd>2</kbd><kbd>r</kbd>              |
 | remove character under cursor and next one                                                      | <kbd>2</kbd><kbd>x</kbd>                             |
 | end renaming                                                                                    | <kbd>enter</kbd>                                     |
@@ -128,7 +128,7 @@ Remove prefix 'lv_' from multiple variables in local scope
 | Enter command mode         | <kbd>:</kbd>                                     |
 | For the whole file         | <kbd>%</kbd>                                     |
 | Substitute                 | <kbd>s</kbd>                                     |
-| Find lv_                   | <kbd>/</kbd><kbd>l</kbd><kbd>v</kbd><kbd>_</kbd> |
+| Find lv_                   | <kbd>/</kbd>`lv_`                                |
 | Substitute with nothing    | <kbd>/</kbd><kbd>/</kbd>                         |
 | Substitute all occurrences | <kbd>g</kbd>                                     |
 | Run command                | <kbd>enter</kbd>                                 |
@@ -168,7 +168,7 @@ ENDCLASS.
 | Move left two times                     | <kbd>h</kbd><kbd>h</kbd>             |
 | Paste from register ('METHODS')         | <kbd>p</kbd>                         |
 | Jump to end of line                     | <kbd>$</kbd>                         |
-| Replace character under cursor with '.' | <kbd>r</kbd><kbd>.</kbd>             |
+| Replace character under cursor with '.' | <kbd>r</kbd>`.`                      |
 | One line down                           | <kbd>j</kbd>                         |
 | End recording macro                     | <kbd>q</kbd>                         |
 | Apply macro 'q' six times               | <kbd>6</kbd><kbd>@</kbd><kbd>q</kbd> |
@@ -186,7 +186,7 @@ Unchain few method declarations
 
 | WHAT                                           | HOW                                      |
 |------------------------------------------------|------------------------------------------|
-| Search ':'                                     | <kbd>/</kbd><kbd>:</kbd><kbd>enter</kbd> |
+| Search ':'                                     | <kbd>/</kbd>`:`<kbd>enter</kbd>          |
 | Delete character                               | <kbd>x</kbd>                             |
 | Delete whole word ('METHODS')                  | <kbd>d</kbd><kbd>a</kbd><kbd>w</kbd>     |
 | One line down                                  | <kbd>j</kbd>                             |
@@ -196,7 +196,7 @@ Unchain few method declarations
 | One line down                                  | <kbd>j</kbd>                             |
 | Paste from register ('METHODS')                | <kbd>p</kbd>                             |
 | Jump to last character                         | <kbd>$</kbd>                             |
-| Replace character under cursor with line break | <kbd>r</kbd><kbd>.</kbd>                 |
+| Replace character under cursor with '.'        | <kbd>r</kbd>`.`                          |
 
 ## Example-7
 
@@ -233,7 +233,7 @@ Increase all arguments of the roll-calls by one
 | WHAT                              | HOW                                  |
 |-----------------------------------|--------------------------------------|
 | Five lines down                   | <kbd>5</kbd><kbd>j</kbd>             |
-| Jump to '6'                       | <kbd>f</kbd><kbd>6</kbd>             |
+| Jump to '6'                       | <kbd>f</kbd>`6`                      |
 | Block selection                   | <kbd>ctrl</kbd><kbd>v</kbd>          |
 | 19 lines down                     | <kbd>1</kbd><kbd>9</kbd><kbd>j</kbd> |
 | Increase number under cursor by 1 | <kbd>ctrl</kbd><kbd>a</kbd>          |
@@ -250,8 +250,8 @@ result = VALUE #( ( rolls = 'X X X X X X X X X X X X' result = 300 ) ).
 | WHAT                                          | HOW                                  |
 |-----------------------------------------------|--------------------------------------|
 | Four lines down                               | <kbd>4</kbd><kbd>j</kbd>             |
-| Jump to 'X'                                   | <kbd>f</kbd><kbd>X</kbd>             |
-| Select everything within the current ''-block | <kbd>v</kbd><kbd>i</kbd><kbd>'</kbd> |
+| Jump to 'X'                                   | <kbd>f</kbd>`X`                      |
+| Select everything within the current ''-block | <kbd>v</kbd><kbd>i</kbd>`'`          |
 | Turn selection to lower case                  | <kbd>u<kbd>                          |
 
 ## Example-9
@@ -267,7 +267,7 @@ METHODS get_element_at_position IMPORTING iv_position      TYPE i
 | WHAT                                           | HOW                           |
 |------------------------------------------------|-------------------------------|
 | Four lines down                                | <kbd>4</kbd><kbd>j</kbd>      |
-| Jump to space                                  | <kbd>f</kbd><kbd>space        |
+| Jump to space                                  | <kbd>f</kbd><kbd>space</kbd>  |
 | Jump two more times                            | <kbd>;</kbd><kbd>;</kbd>      |
 | Block selection                                | <kbd>ctrl</kbd><kbd>v</kbd>   |
 | One line down                                  | <kbd>j</kbd>                  |
@@ -385,7 +385,7 @@ ENDCLASS.
 | Paste content of register 'i'                    | <kbd>"</kbd><kbd>i</kbd><kbd>p</kbd>                                      |
 | 10 lines down                                    | <kbd>1</kbd><kbd>0</kbd><kbd>j</kbd>                                      |
 | Insert new line below                            | <kbd>o</kbd>                                                              |
-| Enter text                                       | `ENDMETHOD.</kbd>esc</kbd>                                                |
+| Enter text                                       | `ENDMETHOD.`</kbd>esc</kbd>                                               |
 | Backward-search to 'ENDCL'                       | <kbd>?</kbd>`ENDCL`<kbd>enter</kbd>                                       |
 | Insert new line above                            | <kbd>O</kbd>                                                              |
 | Enter text                                       | `METHOD `<kbd>esc</kbd>                                                   |
