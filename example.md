@@ -279,36 +279,127 @@ METHODS get_element_at_position IMPORTING iv_position      TYPE i
 ## Example-10
 
 @
-<Describe your Refactoring Goal>
+Introduce parameter
 
 ``` abap
-Code Snippet
-..
-Code Snippet
+CLASS lcl_frame DEFINITION.
+  PUBLIC SECTION.
+    DATA attribute TYPE string.
+    
+    METHODS constructor.
+ENDCLASS.
+
+CLASS lcl_frame IMPLEMENTATION.
+
+  METHOD constructor.
+    attribute = parameter.
+  ENDMETHOD.
+
+ENDCLASS.
 ```
 
-| WHAT                        | HOW                           |
-|-----------------------------|-------------------------------|
-| ...                         | ...                           |
-| ...                         | ...                           |
-| ...                         | ...                           |
+| WHAT                  | HOW                                                                |
+|-----------------------|--------------------------------------------------------------------|
+| Search and jump to''' | <kbd>/</kbd><kbd>'</kbd><kbd>enter<kbd>                            |
+| Change rest of line   | <kbd>C</kbd>                                                       |
+| Enter text            | `parameter`<kbd>esc</kbd>                                          |
+| One line up           | <kbd>k</kbd>                                                       |
+| Two times left        | <kbd>h</kbd><kbd>h</kbd>                                           |
+| Jump to definition    | <kbd>g</kbd><kbd>d</kbd>                                           |
+| One word forward      | <kbd>w</kbd>                                                       |
+| Enter insert-mode     | <kbd>i</kbd>                                                       |
+| Enter text            | <kbd>enter</kbd>`importing`<kbd>enter</kbd>`parameter type string` |
+| Exit insert-mode      | <kbd>esc</kbd>                                                     |
 
 ## Example-11
 
 @
-<Describe your Refactoring Goal>
+Extract method
 
 ``` abap
-Code Snippet
-..
-Code Snippet
+CLASS lcl_russian_peasant_multipl DEFINITION
+  CREATE PUBLIC .
+  
+    PUBLIC SECTION.
+        METHODS multiplication
+          IMPORTING
+            iv_left              TYPE i
+            iv_right             TYPE i
+            iv_write_calculation TYPE abap_bool DEFAULT abap_false
+          RETURNING
+            VALUE(rv_result)     TYPE i.
+
+"...
+
+ENDCLASS.
+
+CLASS lcl_russian_peasant_multipl IMPLEMENTATION.
+
+  METHOD multiplication.
+    DATA(lv_left) = iv_left.
+    DATA(lv_right) = iv_right.
+    add_line(
+      EXPORTING
+        iv_left   = lv_left
+        iv_right  = lv_right
+    ).
+    WHILE lv_left > 1.
+      calculate_next_line(
+        CHANGING
+          cv_left  = lv_left
+          cv_right = lv_right
+      ).
+      add_line(
+        EXPORTING
+          iv_left   = lv_left
+          iv_right  = lv_right
+      ).
+    ENDWHILE.
+    rv_result = calculate_result( ).
+    IF iv_write_calculation = abap_true.
+      write_calculation( iv_result = rv_result ).
+    ENDIF.
+  ENDMETHOD.
+
+"...
+
+ENDCLASS.
 ```
 
-| WHAT                        | HOW                           |
-|-----------------------------|-------------------------------|
-| ...                         | ...                           |
-| ...                         | ...                           |
-| ...                         | ...                           |
+| WHAT                                             | HOW                                                                       |
+|--------------------------------------------------|---------------------------------------------------------------------------|
+| Search and jump to 'WHILE'                       | <kbd>/</kbd>`WHILE`<kbd>enter</kbd>                                       |
+| One line down                                    | <kbd>j</kbd>                                                              |
+| Line-selection                                   | <kbd>V</kbd>                                                              |
+| 9 lines down / include next 9 lines in selection | <kbd>9</kbd><kbd>j</kbd>                                                  |
+| Replace selection, moving it to register 'i'     | <kbd>"</kbd><kbd>i</kbd><kbd>c</kbd>                                      |
+| Enter text                                       | `create_new_line( iv_left = iv_left iv_right = iv_right ).`<kbd>esc</kbd> |
+| Jump to first non-blank character in line        | <kbd>^</kbd>                                                              |
+| Select to end of word                            | <kbd>v</kbd><kbd>e</kbd>                                                  |
+| Yank selection into register 'd'                 | <kbd>"</kbd><kbd>d</kbd><kbd>y</kbd>                                      |
+| 8 lines down                                     | <kbd>8</kbd><kbd>j</kbd>                                                  |
+| Insert new line below                            | <kbd>o</kbd>                                                              |
+| Enter text                                       | `METHOD `<kbd>esc</kbd>                                                   |
+| Paste content of register 'd'                    | <kbd>"</kbd><kbd>d</kbd><kbd>p</kbd>                                      |
+| Insert '.' after cursor                          | <kbd>a</kbd>`.`<kbd>esc</kbd>                                             |
+| Paste content of register 'i'                    | <kbd>"</kbd><kbd>i</kbd><kbd>p</kbd>                                      |
+| 10 lines down                                    | <kbd>1</kbd><kbd>0</kbd><kbd>j</kbd>                                      |
+| Insert new line below                            | <kbd>o</kbd>                                                              |
+| Enter text                                       | `ENDMETHOD.</kbd>esc</kbd>                                                |
+| Backward-search to 'ENDCL'                       | <kbd>?</kbd>`ENDCL`<kbd>enter</kbd>                                       |
+| Insert new line above                            | <kbd>O</kbd>                                                              |
+| Enter text                                       | `METHOD `<kbd>esc</kbd>                                                   |
+| Paste content of register 'd'                    | <kbd>"</kbd><kbd>d</kbd><kbd>p</kbd>                                      |
+| 9 lines up                                       | <kbd>9</kbd><kbd>k</kbd>                                                  |
+| Lines-selection                                  | <kbd>V</kbd>                                                              |
+| 2 lines down / include next 2 lines in selection | <kbd>2</kbd><kbd>j</kbd>                                                  |
+| Yank selection                                   | <kbd>y</kbd>                                                              |
+| 9 lines down                                     | <kbd>9</kbd><kbd>j</kbd>                                                  |
+| Paste                                            | <kbd>p</kbd>                                                              |
+| Two lines down                                   | <kbd>2</kbd><kbd>j</kbd>                                                  |
+| Insert '.' at end of line                        | <kbd>A</kbd>`.`<kbd>esc</kbd>                                             |
+
+
 
 ## Example-12
 
