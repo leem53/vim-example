@@ -385,7 +385,7 @@ ENDCLASS.
 | Paste content of register 'i'                    | <kbd>"</kbd><kbd>i</kbd><kbd>p</kbd>                                      |
 | 10 lines down                                    | <kbd>1</kbd><kbd>0</kbd><kbd>j</kbd>                                      |
 | Insert new line below                            | <kbd>o</kbd>                                                              |
-| Enter text                                       | `ENDMETHOD.`</kbd>esc</kbd>                                               |
+| Enter text                                       | `ENDMETHOD.`<kbd>esc</kbd>                                                |
 | Backward-search to 'ENDCL'                       | <kbd>?</kbd>`ENDCL`<kbd>enter</kbd>                                       |
 | Insert new line above                            | <kbd>O</kbd>                                                              |
 | Enter text                                       | `METHOD `<kbd>esc</kbd>                                                   |
